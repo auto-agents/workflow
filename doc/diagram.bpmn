@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0n1tfy2" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.46.1" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.9.0">
+  <bpmn:process id="WebSearchProcess" name="web search process" isExecutable="true">
+    <bpmn:extensionElements>
+      <zeebe:versionTag value="1.0" />
+    </bpmn:extensionElements>
+    <bpmn:sequenceFlow id="Flow_0c4q3i8" name="web search tool call" sourceRef="WebSearchToolCall" targetRef="Activity_06lbk6q" />
+    <bpmn:sequenceFlow id="Flow_05v7vii" sourceRef="Activity_06lbk6q" targetRef="OpenAndSearchResultPage" />
+    <bpmn:task id="Activity_0vrjquf" name="open and scrap page">
+      <bpmn:incoming>Flow_1m0jw6q</bpmn:incoming>
+    </bpmn:task>
+    <bpmn:parallelGateway id="Gateway_1gnuumg">
+      <bpmn:incoming>Flow_0e0bs6u</bpmn:incoming>
+      <bpmn:outgoing>Flow_1m0jw6q</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:sequenceFlow id="Flow_0e0bs6u" sourceRef="OpenAndSearchResultPage" targetRef="Gateway_1gnuumg" />
+    <bpmn:sequenceFlow id="Flow_1m0jw6q" sourceRef="Gateway_1gnuumg" targetRef="Activity_0vrjquf" />
+    <bpmn:startEvent id="WebSearchToolCall" name="tool call signal bridge">
+      <bpmn:extensionElements>
+        <zeebe:ioMapping>
+          <zeebe:output source="=my search query" target="query" />
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:outgoing>Flow_0c4q3i8</bpmn:outgoing>
+      <bpmn:signalEventDefinition id="SignalEventDefinition_0urpamk" />
+    </bpmn:startEvent>
+    <bpmn:task id="Activity_06lbk6q" name="search home page">
+      <bpmn:incoming>Flow_0c4q3i8</bpmn:incoming>
+      <bpmn:outgoing>Flow_05v7vii</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="OpenAndSearchResultPage" name="open and scrap search result page">
+      <bpmn:extensionElements />
+      <bpmn:incoming>Flow_05v7vii</bpmn:incoming>
+      <bpmn:outgoing>Flow_0e0bs6u</bpmn:outgoing>
+    </bpmn:task>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="WebSearchProcess">
+      <bpmndi:BPMNShape id="Activity_0vrjquf_di" bpmnElement="Activity_0vrjquf">
+        <dc:Bounds x="630" y="300" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1gnuumg_di" bpmnElement="Gateway_1gnuumg">
+        <dc:Bounds x="655" y="205" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0uy4vj1_di" bpmnElement="WebSearchToolCall">
+        <dc:Bounds x="172" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="156" y="145" width="69" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_07yol6y_di" bpmnElement="Activity_06lbk6q">
+        <dc:Bounds x="410" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1lajl3e_di" bpmnElement="OpenAndSearchResultPage">
+        <dc:Bounds x="630" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1m0jw6q_di" bpmnElement="Flow_1m0jw6q">
+        <di:waypoint x="680" y="255" />
+        <di:waypoint x="680" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0e0bs6u_di" bpmnElement="Flow_0e0bs6u">
+        <di:waypoint x="680" y="160" />
+        <di:waypoint x="680" y="205" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0c4q3i8_di" bpmnElement="Flow_0c4q3i8">
+        <di:waypoint x="208" y="120" />
+        <di:waypoint x="410" y="120" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="271" y="86" width="77" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_05v7vii_di" bpmnElement="Flow_05v7vii">
+        <di:waypoint x="510" y="120" />
+        <di:waypoint x="630" y="120" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

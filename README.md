@@ -7,7 +7,7 @@ LLM&nbsp;Agents&nbsp;Framework&nbsp;and&nbsp;tool
 
 ---
 
-**Workflow orchestrator**
+**Workflow orchestrator & model**
 
 - **BPMN 2.0** (Business Process Model and Notation)
 
@@ -20,7 +20,7 @@ LLM&nbsp;Agents&nbsp;Framework&nbsp;and&nbsp;tool
 
 ---
 
-The **workflow orchestrator** makes it possible to edit & run **workflows** from cli/agents and using cli/agents
+The **workflow orchestrator** make it possible to edit & run **workflows** from cli/agents and using cli/agents
 
 - powered by:
   - **[Bpm 2.0](https://)** 
