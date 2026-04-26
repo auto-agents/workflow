@@ -24,7 +24,8 @@ The **workflow orchestrator** makes it possible to edit & run **workflows** from
 
 - powered by:
   - **[Bpm 2.0](https://)** 
-  
+  [https://www.omg.org/spec/BPMN/2.0.2/](https://www.omg.org/spec/BPMN/2.0.2/)
+
 ---
 
 *this software is copyrighted by Franck Gaspoz, since January 2026, under the **GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007** (see file [LICENCE](LICENSE))*
