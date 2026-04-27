@@ -6,9 +6,6 @@
     </bpmn:extensionElements>
     <bpmn:sequenceFlow id="Flow_0c4q3i8" name="web search tool call" sourceRef="WebSearchToolCall" targetRef="Activity_06lbk6q" />
     <bpmn:sequenceFlow id="Flow_05v7vii" sourceRef="Activity_06lbk6q" targetRef="OpenAndSearchResultPage" />
-    <bpmn:task id="Activity_0vrjquf" name="open and scrap page">
-      <bpmn:incoming>Flow_1m0jw6q</bpmn:incoming>
-    </bpmn:task>
     <bpmn:parallelGateway id="Gateway_1gnuumg">
       <bpmn:incoming>Flow_0e0bs6u</bpmn:incoming>
       <bpmn:outgoing>Flow_1m0jw6q</bpmn:outgoing>
@@ -24,44 +21,70 @@
       <bpmn:outgoing>Flow_0c4q3i8</bpmn:outgoing>
       <bpmn:signalEventDefinition id="SignalEventDefinition_0urpamk" />
     </bpmn:startEvent>
-    <bpmn:task id="Activity_06lbk6q" name="search home page">
+    <bpmn:serviceTask id="Activity_06lbk6q" name="search home page">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="SearchHomePage" retries="0" />
+      </bpmn:extensionElements>
       <bpmn:incoming>Flow_0c4q3i8</bpmn:incoming>
       <bpmn:outgoing>Flow_05v7vii</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:task id="OpenAndSearchResultPage" name="open and scrap search result page">
-      <bpmn:extensionElements />
+      <bpmn:outgoing>Flow_1l4rln5</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="Event_0amqhqq">
+      <bpmn:incoming>Flow_08eb7cm</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1l4rln5" sourceRef="Activity_06lbk6q" targetRef="Gateway_0r5yusd" />
+    <bpmn:exclusiveGateway id="Gateway_0r5yusd">
+      <bpmn:incoming>Flow_1l4rln5</bpmn:incoming>
+      <bpmn:outgoing>Flow_08eb7cm</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_08eb7cm" sourceRef="Gateway_0r5yusd" targetRef="Event_0amqhqq" />
+    <bpmn:serviceTask id="OpenAndSearchResultPage" name="open and scrap search result page">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="ScrapSearchResultPage" />
+      </bpmn:extensionElements>
       <bpmn:incoming>Flow_05v7vii</bpmn:incoming>
       <bpmn:outgoing>Flow_0e0bs6u</bpmn:outgoing>
-    </bpmn:task>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_0vrjquf" name="open and scrap link page">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="OpenAndScrapLinkPage" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1m0jw6q</bpmn:incoming>
+    </bpmn:serviceTask>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="WebSearchProcess">
-      <bpmndi:BPMNShape id="Activity_0vrjquf_di" bpmnElement="Activity_0vrjquf">
-        <dc:Bounds x="630" y="300" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Gateway_1gnuumg_di" bpmnElement="Gateway_1gnuumg">
-        <dc:Bounds x="655" y="205" width="50" height="50" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0uy4vj1_di" bpmnElement="WebSearchToolCall">
         <dc:Bounds x="172" y="102" width="36" height="36" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="156" y="145" width="69" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_07yol6y_di" bpmnElement="Activity_06lbk6q">
+      <bpmndi:BPMNShape id="Activity_0jrvazf_di" bpmnElement="Activity_06lbk6q">
         <dc:Bounds x="410" y="80" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1lajl3e_di" bpmnElement="OpenAndSearchResultPage">
-        <dc:Bounds x="630" y="80" width="100" height="80" />
+      <bpmndi:BPMNShape id="Gateway_1gnuumg_di" bpmnElement="Gateway_1gnuumg">
+        <dc:Bounds x="705" y="205" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0amqhqq_di" bpmnElement="Event_0amqhqq">
+        <dc:Bounds x="442" y="302" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0r5yusd_di" bpmnElement="Gateway_0r5yusd" isMarkerVisible="true">
+        <dc:Bounds x="435" y="205" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1itjxqh_di" bpmnElement="OpenAndSearchResultPage">
+        <dc:Bounds x="680" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0stazyk_di" bpmnElement="Activity_0vrjquf">
+        <dc:Bounds x="680" y="300" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_1m0jw6q_di" bpmnElement="Flow_1m0jw6q">
-        <di:waypoint x="680" y="255" />
-        <di:waypoint x="680" y="300" />
+        <di:waypoint x="730" y="255" />
+        <di:waypoint x="730" y="300" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0e0bs6u_di" bpmnElement="Flow_0e0bs6u">
-        <di:waypoint x="680" y="160" />
-        <di:waypoint x="680" y="205" />
+        <di:waypoint x="730" y="160" />
+        <di:waypoint x="730" y="205" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0c4q3i8_di" bpmnElement="Flow_0c4q3i8">
         <di:waypoint x="208" y="120" />
@@ -72,7 +95,15 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_05v7vii_di" bpmnElement="Flow_05v7vii">
         <di:waypoint x="510" y="120" />
-        <di:waypoint x="630" y="120" />
+        <di:waypoint x="680" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1l4rln5_di" bpmnElement="Flow_1l4rln5">
+        <di:waypoint x="460" y="160" />
+        <di:waypoint x="460" y="205" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_08eb7cm_di" bpmnElement="Flow_08eb7cm">
+        <di:waypoint x="460" y="255" />
+        <di:waypoint x="460" y="302" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

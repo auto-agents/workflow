@@ -7,7 +7,7 @@ LLM&nbsp;Agents&nbsp;Framework&nbsp;and&nbsp;tool
 
 ---
 
-**Workflow orchestrator & model**
+**Workflow orchestrator & models**
 
 - **BPMN 2.0** (Business Process Model and Notation)
 
