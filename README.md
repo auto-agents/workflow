@@ -9,7 +9,7 @@ LLM&nbsp;Agents&nbsp;Framework&nbsp;and&nbsp;tool
 
 **Workflow orchestrator & models**
 
-- **BPMN 2.0** (Business Process Model and Notation)
+- ...
 
 </td>
 <td>
@@ -23,8 +23,8 @@ LLM&nbsp;Agents&nbsp;Framework&nbsp;and&nbsp;tool
 The **workflow orchestrator** make it possible to edit & run **workflows** from cli/agents and using cli/agents
 
 - powered by:
-  - **[Bpm 2.0](https://)** 
-  [https://www.omg.org/spec/BPMN/2.0.2/](https://www.omg.org/spec/BPMN/2.0.2/)
+  - **[...](https://)** 
+  [...](...)
 
 ---
 

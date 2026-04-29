@@ -1,0 +1,28 @@
+{
+  "name": "workflow",
+  "version": "1.0.0",
+  "description": "workflow engine and models",
+  "keywords": [
+    "workflow",
+    "engine",
+    "model"
+  ],
+  "homepage": "https://github.com/bulbing-bots/workflow#readme",
+  "bugs": {
+    "url": "https://github.com/bulbing-bots/workflow/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bulbing-bots/workflow.git"
+  },
+  "license": "ISC",
+  "author": "franck gaspoz",
+  "type": "commonjs",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
