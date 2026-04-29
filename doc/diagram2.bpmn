@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0zh8wqv" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.46.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.24.0">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0zh8wqv" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.46.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.24.0">
   <bpmn:process id="Process_WebSearch" isExecutable="true">
     <bpmn:task id="SearchHomePage" name="Search Home Page">
-      <bpmn:extensionElements />
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="Input_1c22pp5" />
+          <camunda:inputParameter name="Input_1fd1qs2" />
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
       <bpmn:incoming>Flow_1jwojg1</bpmn:incoming>
       <bpmn:property id="Property_19y20bl" name="__targetRef_placeholder" />
       <bpmn:dataInputAssociation id="DataInputAssociation_1v43hny">
@@ -27,26 +32,28 @@
           <dc:Bounds x="174" y="145" width="53" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1jfuxna_di" bpmnElement="SearchHomePage">
-        <dc:Bounds x="480" y="80" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="DataObjectReference_1mkbtpv_di" bpmnElement="WebSearchToolCallArgsRef">
         <dc:Bounds x="302" y="235" width="36" height="50" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="280" y="292" width="83" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1jfuxna_di" bpmnElement="SearchHomePage">
+        <dc:Bounds x="480" y="110" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_1jwojg1_di" bpmnElement="Flow_1jwojg1">
         <di:waypoint x="218" y="120" />
-        <di:waypoint x="480" y="120" />
+        <di:waypoint x="349" y="120" />
+        <di:waypoint x="349" y="150" />
+        <di:waypoint x="480" y="150" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="305" y="86" width="89" height="27" />
+          <dc:Bounds x="370" y="116" width="89" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="DataInputAssociation_1v43hny_di" bpmnElement="DataInputAssociation_1v43hny">
-        <di:waypoint x="338" y="247" />
-        <di:waypoint x="480" y="147" />
+        <di:waypoint x="338" y="250" />
+        <di:waypoint x="480" y="175" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
