@@ -6,7 +6,6 @@ A workflow management system (WfMS) is a software system for setting up, perform
 
 ## Related concepts
 
-
 The concept of workflow is closely related to several fields in operations research and other areas that study the nature of work, either quantitatively or qualitatively, such as artificial intelligence (in particular, the sub-discipline of AI planning) and ethnography. The term "workflow" is more commonly used in particular industries, such as in printing or professional domains such as clinical laboratories, where it may have particular specialized meanings.
 
 **`Processes`**: A process is a more general notion than workflow and can apply to, for example, physical or biological processes, whereas a workflow is typically a process or collection of processes described in the context of work, such as all processes occurring in a machine shop.
